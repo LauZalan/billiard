@@ -1,0 +1,18 @@
+<div>
+    <h1>Asztalfoglalás</h1>
+    <form [formGroup]="reservation" (ngSubmit)="reserve()">
+        <label>Asztal/játék típusa: </label>
+        <select formControlName="type">
+            <option value="billiard">Billiárd</option>
+            <option value="snuker">Sznúker</option>
+            <option value="dartz">Dartz</option>
+            <option value="table">Asztal</option>
+        </select>
+        <label>Foglalás kezdete: </label>
+        <input type="datetime" formControlName="start">
+        <label>Foglalás időtartama: </label>
+        <input type="number" formControlName="duration">
+        <button type="submit">Foglalás</button>
+        <button (click)="cancelRes()">Mégse</button>
+    </form>
+</div>

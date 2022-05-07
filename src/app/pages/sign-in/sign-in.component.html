@@ -1,0 +1,7 @@
+<div>
+    <h1>Bejelentkezés</h1>
+    <label for="email">Email: </label><input [formControl]="email" type="text">
+    <label for="password">Jelszó: </label><input [formControl]="password" type="password">
+    <button (click)="signIn()">Bejelentezés</button>
+    <button [routerLink]="'/sign-up'">Regisztráció</button>
+</div>

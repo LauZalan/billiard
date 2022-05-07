@@ -1,0 +1,19 @@
+<div>
+    <h1></h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <label for="email">Email: </label>
+            <input formControlName="email" type="text">
+        <label for="password">Jelszó: </label>
+            <input formControlName="password" type="password">
+        <label for="rePassword">Jelszó ismét:</label>
+            <input formControlName="rePassword" type="password">
+        <div formGroupName="name">
+            <label for="firstName">Keresztnév: </label>
+            <input type="text" formControlName="firstName">
+            <label for="lastName">Vezetéknév: </label>
+            <input type="text" formControlName="lastName">
+        </div>
+        <button type="submit">Regisztráció</button>
+        <button (click)="cancel()">Mégse</button>
+    </form>
+</div>

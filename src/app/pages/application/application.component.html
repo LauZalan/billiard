@@ -1,0 +1,17 @@
+<div>
+    <h1>Verseny jelentkezés</h1>
+    <form [formGroup]="application" (ngSubmit)="apply()">
+        <label>Versenyek: </label>
+        <select formControlName="name">
+            <option value="verseny1">verseny1</option>
+            <option value="verseny2">verseny1</option>
+            <option value="verseny3">verseny1</option>
+            <option value="verseny4">verseny1</option>
+        </select>
+        <label>Verseny kezdete: </label>
+        <input type="text">
+        <input type="hidden" formControlName="user" value="admin">
+        <button type="submit">Jelentkezés</button>
+        <button (click)="cancelApplication()">Mégse</button>
+    </form>
+</div>
