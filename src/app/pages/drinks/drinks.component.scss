@@ -1,0 +1,34 @@
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.div-flex {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 50%;
+}
+
+.main_component {
+    padding-top: 20px;
+}
+
+table {
+    width: 50%;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+}
+
+th.mat-header-cell {
+   text-align: center !important;
+}
+

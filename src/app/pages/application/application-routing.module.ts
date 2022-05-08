@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ApplicationComponent } from './application.component';
 
 const routes: Routes = [
-  { path: '', component: ApplicationComponent}
+  { path: '', component: ApplicationComponent},
+  { path: 'applSuccess', loadChildren: () => import('./suappl-success/suappl-success.module').then(m => m.SuapplSuccessModule) }
 ];
 
 @NgModule({

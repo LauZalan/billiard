@@ -1,18 +1,29 @@
-<div>
-    <h1>Asztalfoglalás</h1>
-    <form [formGroup]="reservation" (ngSubmit)="reserve()">
-        <label>Asztal/játék típusa: </label>
-        <select formControlName="type">
-            <option value="billiard">Billiárd</option>
-            <option value="snuker">Sznúker</option>
-            <option value="dartz">Dartz</option>
-            <option value="table">Asztal</option>
-        </select>
-        <label>Foglalás kezdete: </label>
-        <input type="datetime" formControlName="start">
-        <label>Foglalás időtartama: </label>
-        <input type="number" formControlName="duration">
-        <button type="submit">Foglalás</button>
-        <button (click)="cancelRes()">Mégse</button>
-    </form>
+<div class="main_component">
+    <div class="div-flex">
+        <h1>Asztalfoglalás</h1>
+        <form [formGroup]="reservation" (ngSubmit)="reserve()">
+            <mat-form-field>
+                <mat-label>Asztal: </mat-label>
+                <mat-select formControlName="type">
+                    <mat-option *ngFor="let table of tables" [value]="table">{{table.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Foglalás kezdete: </mat-label>
+                <input matInput type="datetime">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Foglalás időtartama: </mat-label>
+                <input matInput type="number">
+            </mat-form-field>
+            <span class="buttons">
+                <button mat-raised-button color="primary" type="submit">Foglalás</button>
+            </span>
+            <span class="buttons">
+                <button mat-raised-button color="primary" (click)="cancelRes()">Mégse</button>
+            </span>
+        </form>
+        <h1>Kedves értékelő!</h1>
+        <p>Ha végeztél kérlek a profilon töröld a foglalást, hogy mások is tudjanak majd foglalni.</p>
+    </div>
 </div>

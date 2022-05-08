@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "webkeret-billiard": {
+      "hosting": {
+        "billiard": [
+          "webkeret-billiard"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webkeret-billiard"
+  }
+}

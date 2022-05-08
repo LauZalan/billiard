@@ -1,7 +1,13 @@
-<div>
+<div class="main_component">
     <h1>Bejelentkezés</h1>
-    <label for="email">Email: </label><input [formControl]="email" type="text">
-    <label for="password">Jelszó: </label><input [formControl]="password" type="password">
-    <button (click)="signIn()">Bejelentezés</button>
-    <button [routerLink]="'/sign-up'">Regisztráció</button>
+    <mat-form-field>
+        <mat-label for="email">Email: </mat-label>
+        <input matInput [formControl]="email" type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="password">Jelszó: </mat-label>
+        <input matInput [formControl]="password" type="password">
+    </mat-form-field>
+    <span><button mat-raised-button color="primary" (click)="signIn()">Bejelentezés</button></span>
+    <span><button mat-raised-button color="primary" [routerLink]="'/sign-up'">Regisztráció</button></span>
 </div>

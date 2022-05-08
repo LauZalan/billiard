@@ -1,22 +1,28 @@
-<app-menu (selectedPage)="changePage($event)" [currentPage]="page"></app-menu>
-<!--<ng-container [ngSwitch]="page">
-    <ng-container *ngSwitchCase="'main'">
-        <app-main></app-main>
-    </ng-container>
-    <ng-container *ngSwitchCase="'drinks'">
-        <app-drinks></app-drinks>
-    </ng-container>
-    <ng-container *ngSwitchCase="'application'">
-        <app-application></app-application>
-    </ng-container>
-    <ng-container *ngSwitchCase="'reserve'">
-        <app-reserve></app-reserve>
-    </ng-container>
-    <ng-container *ngSwitchCase="'sign-in'">
-        <app-sign-in></app-sign-in>
-    </ng-container>
-    <ng-container *ngSwitchCase="'sign-up'">
-        <app-sign-up></app-sign-up>
-    </ng-container>
-</ng-container> -->
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <app-menu (selectedPage)="changePage($event)" [currentPage]="page" (onCloseSidenav)="onClose($event, sidenav)" [loggedInUser]="loggedInUser" (onLogout)="logout($event)"></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="secondary">
+            <button mat-icon-button fxHide.gt-md fxHide.md (click)="onToggleSidenav(sidenav)">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <div>
+                Vegas Pub
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-md>
+                <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+                    <li><a routerLink="/main">Főoldal</a></li>
+                    <li><a routerLink="/drinks">Itallap</a></li>
+                    <li ><a routerLink="/reserve">Asztalfoglalás</a></li>
+                    <li><a routerLink="/application">Versenyek</a></li>
+                    <li *ngIf="!(loggedInUser)"><a routerLink="/sign-in">Bejelentkezés</a></li>
+                    <li *ngIf="!(loggedInUser)"><a routerLink="/sign-up">Regisztráció</a></li>
+                    <li *ngIf="loggedInUser"><a routerLink="/profile">Profil</a></li>
+                    <li *ngIf="loggedInUser"><a routerLink="/login" (click)="logout()">Kijelentkezés</a></li>
+                </ul>
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
